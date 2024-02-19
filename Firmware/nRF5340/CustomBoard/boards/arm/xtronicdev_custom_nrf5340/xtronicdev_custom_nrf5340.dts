@@ -1,0 +1,67 @@
+// Copyright (c) 2024 Nordic Semiconductor ASA
+// SPDX-License-Identifier: Apache-2.0
+
+/dts-v1/;
+#include <nordic/nrf5340_cpuapp_qkaa.dtsi>
+
+/ {
+	model = "XtronicDev_Custom_nRF5340";
+	compatible = "xtronic,xtronicdev-custom-nrf5340";
+
+	chosen {
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,code-partition = &slot0_partition;
+	};
+
+	// board generation script seems to be missing some codes/features here. we will have to manually add them
+	reserved-memory {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges;
+
+		sram0_shared: memory@20070000 {
+			/* SRAM allocated to shared memory */
+			reg = <0x20070000 0x10000>;
+		};
+	};
+
+};
+
+&flash0 {
+	partitions {
+		compatible = "fixed-partitions";
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		boot_partition: partition@0 {
+			label = "mcuboot";
+			reg = <0x0 0x10000>;
+		};
+		slot0_partition: partition@10000 {
+			label = "image-0";
+			reg = <0x10000 0x40000>;
+		};
+		slot0_ns_partition: partition@50000 {
+			label = "image-0-nonsecure";
+			reg = <0x50000 0x30000>;
+		};
+		slot1_partition: partition@80000 {
+			label = "image-1";
+			reg = <0x80000 0x40000>;
+		};
+		slot1_ns_partition: partition@c0000 {
+			label = "image-1-nonsecure";
+			reg = <0xc0000 0x30000>;
+		};
+		scratch_partition: partition@f0000 {
+			label = "image-scratch";
+			reg = <0xf0000 0xa000>;
+		};
+		storage_partition: partition@fa000 {
+			label = "storage";
+			reg = <0xfa000 0x6000>;
+		};
+	};
+};
+
