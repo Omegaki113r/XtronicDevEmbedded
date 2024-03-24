@@ -1,0 +1,13 @@
+# Copyright (c) 2024 Nordic Semiconductor ASA
+# SPDX-License-Identifier: Apache-2.0
+
+identifier: xtronicdev_custom_nrf5340
+name: XtronicDev_Custom_nRF5340
+type: mcu
+arch: arm
+ram: 512
+flash: 1024
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
