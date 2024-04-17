@@ -1,0 +1,57 @@
+/**
+ * @file xtronicdev_custom_nrf5340.overlay
+ * @author Omegaki113r
+ * @date Wednesday, 17th April 2024 3: 10: 04 pm
+ * @copyright Copyright <<projectCreationYear>> - 2024 0m3g4ki113r, Xtronic
+ * *//*
+ * Project: SoftTimerBlink
+ * File Name: xtronicdev_custom_nrf5340.overlay
+ * File Created: Wednesday, 17th April 2024 3: 10: 04 pm
+ * Author: Omegaki113r (omegaki113r@gmail.com)
+ * -----
+ * Last Modified: Wednesday, 17th April 2024 3: 11: 42 pm
+ * Modified By: Omegaki113r (omegaki113r@gmail.com)
+ * -----
+ * Copyright <<projectCreationYear>> - 2024 0m3g4ki113r, Xtronic
+ * -----
+ * HISTORY:
+ * Date          By    Comments
+ * ----------    ---    ---------------------------------------------------------
+ */
+
+// To get started, press Ctrl+Space to bring up the completion menu and view the available nodes.
+
+// You can also use the buttons in the sidebar to perform actions on nodes.
+// Actions currently available include:
+
+// * Enabling / disabling the node
+// * Adding the bus to a bus
+// * Removing the node
+// * Connecting ADC channels
+
+// For more help, browse the DeviceTree documentation at https: //docs.zephyrproject.org/latest/guides/dts/index.html
+// You can also visit the nRF DeviceTree extension documentation at https: //nrfconnect.github.io/vscode-nrf-connect/devicetree/nrfdevicetree.html
+
+&gpio0 {
+    status = "okay";
+};
+
+/ {
+    leds {
+        compatible = "gpio-leds";
+        led0: led0 {
+            label = "led0";
+            gpios = <&gpio0 28 0>;
+        };
+
+        led1: led1 {
+            gpios = <&gpio0 29 0>;
+            label = "led1";
+        };
+
+        led2: led2 {
+            gpios = <&gpio0 30 0>;
+            label = "led2";
+        };
+    };
+};

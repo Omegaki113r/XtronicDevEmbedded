@@ -4,8 +4,8 @@
         "${workspaceFolder}\\Firmware\\nrf5340\\CustomBoard"
     ],
     "nrf-connect.applications": [
-        "${workspaceFolder}\\Firmware\\nRF5340\\BlinkZephyrOS",
         "${workspaceFolder}\\Firmware\\nRF5340\\BlinkZephyOS",
-        "${workspaceFolder}\\Firmware\\nRF5340\\BlinkZephyr"
+        "${workspaceFolder}\\Firmware\\nRF5340\\BlinkZephyr",
+        "${workspaceFolder}\\Firmware\\nRF5340\\SoftTimerBlink"
     ]
 }
